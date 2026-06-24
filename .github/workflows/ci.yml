@@ -1,0 +1,18 @@
+name: Java CI
+on:
+  push:
+    branches: [ develop ]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+    - name: Set up JDK
+      uses: actions/setup-java@v4
+      with:
+        java-version: '17'
+        distribution: 'temurin'
+    - name: Compilar y probar
+      run: |
+        javac -d out src/Main.java test/MainTest.java
+        java -ea -cp out test.MainTest
