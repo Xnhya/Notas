@@ -15,4 +15,4 @@ jobs:
     - name: Compilar y probar
       run: |
         javac -d out src/Main.java test/MainTest.java
-        java -ea -cp out MainTest
+        java -ea -cp out test.MainTest
